@@ -1,0 +1,86 @@
+<div fxLayout="row" fxLayoutAlign="start" fxLayout.xs="column" fxLayoutGap="10px">
+   <mat-form-field>
+        <mat-label>Organizations</mat-label>
+        <mat-select [(value)]="org">
+            <mat-option value="option1">All Organizations</mat-option>
+            <mat-option value="option2">Enzigma</mat-option>
+            <mat-option value="option2">Prenetics</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Projects</mat-label>
+        <mat-select [(value)]="selected">
+            <mat-option value="option1">All Projects</mat-option>
+            <mat-option value="option2">WeWork</mat-option>
+            <mat-option value="option3">Ocean Cannon Properties</mat-option>
+            <mat-option value="option4">American Red Cross</mat-option>
+            <mat-option value="option5">Bellmar</mat-option>
+            <mat-option value="option6">FTP Attachment</mat-option>
+            <mat-option value="option7">Attachment Expert</mat-option>
+            <mat-option value="option8">Prenetics</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Range</mat-label>
+        <mat-select [(value)]="range">
+            <mat-option value="option0">Current Week</mat-option>
+            <mat-option value="option1">Last Two week</mat-option>
+            <mat-option value="option2">Last Three week</mat-option>
+            <mat-option value="option3">This Month</mat-option>
+            <mat-option value="option4">Last Month</mat-option>
+        </mat-select>
+    </mat-form-field>    
+    <mat-form-field>
+        <input matInput [matDatepicker]="from" placeholder="From">
+        <mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+        <mat-datepicker #from></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="to" placeholder="To">
+        <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+        <mat-datepicker #to></mat-datepicker>
+    </mat-form-field>
+</div>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+    <div fxFlex="80%" fxFlexAlign="start">
+        <button mat-raised-button (click)="createLog()">Log</button>
+    </div>
+    <div fxFlex="20%" fxFlexAlign="end">
+        <mat-form-field>
+            <input matInput type="text" (keyup)="onTableSearch($event.target.value)" placeholder="Search">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+</div>
+
+<mat-table #table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="{{column.id}}" *ngFor="let column of columnNames">
+
+        <mat-header-cell *matHeaderCellDef mat-sort-header color=primary> {{column.value}} </mat-header-cell>
+
+        <ng-template [ngIf]="column.id != 'action'">
+            <mat-cell *matCellDef="let element"> {{element[column.id]}} </mat-cell>
+        </ng-template>
+        <ng-template [ngIf]="column.id == 'action'">
+            <mat-cell *matCellDef="let element" (click)="$event.stopPropagation()">
+                <button mat-button (click)="onEdit(element.id)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-button (click)="delete(element.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-template>
+
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 15, 20]" showFirstLastButtons></mat-paginator>

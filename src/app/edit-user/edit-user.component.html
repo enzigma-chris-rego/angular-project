@@ -1,0 +1,30 @@
+<h3>
+  <b>Edit User</b>
+</h3>
+
+<form class="Log-form">
+  <mat-form-field class="Log-full-width">
+    <input matInput placeholder="Email">
+  </mat-form-field>
+  <mat-form-field class="Log-full-width">
+    <input matInput placeholder="Projects">
+  </mat-form-field>
+  <mat-form-field class="Log-full-width">
+    <input matInput placeholder="Profile" aria-label="Number" matInput [matAutocomplete]="auto">
+    <!-- <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let project of testProfileArray" [value]="project">
+           {{project}}
+           </mat-option>
+        </mat-autocomplete> -->
+
+  </mat-form-field>
+  <mat-form-field class="Log-full-width">
+    <input matInput placeholder="Phone">
+  </mat-form-field>
+
+  <mat-checkbox>IsActive</mat-checkbox>
+  <div fxLayout="row" fxLayoutAlign="center" fxLayout.xs="column" fxLayoutGap="10px">
+    <button mat-raised-button color="basic">Save</button>
+    <button mat-raised-button color="primary" (click)="hide()">Cancel</button>
+  </div>
+</form>

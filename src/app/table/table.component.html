@@ -1,0 +1,28 @@
+<mat-table #table [dataSource]="dataSource" matSort>
+    
+ <ng-container matColumnDef="{{column.id}}" *ngFor="let column of columnNames">
+      
+    <mat-header-cell *matHeaderCellDef mat-sort-header color=primary> {{column.value}} </mat-header-cell>
+  
+    <ng-template [ngIf]="column.id != 'action'">
+      <mat-cell *matCellDef="let element"> {{element[column.id]}} </mat-cell>
+    </ng-template>    
+    <ng-template [ngIf]="column.id == 'action'">
+      <mat-cell *matCellDef="let element" (click)="$event.stopPropagation()">
+        <button mat-button (click)="edit(element.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        <button mat-button (click)="delete(element.id)">
+          <mat-icon>delete</mat-icon>
+        </button>        
+      </mat-cell>
+    </ng-template>  
+  
+</ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+</mat-table>
+<mat-paginator  #paginator [pageSize]="10" [pageSizeOptions]="[5, 15, 20]" showFirstLastButtons></mat-paginator>

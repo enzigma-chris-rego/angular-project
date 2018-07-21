@@ -1,0 +1,41 @@
+<div class="container col-md-4 col-md-offset-4 mar-top ;">
+
+  <div class="alert alert-danger" *ngIf="userLoginForm.submitted && !username.valid && username.errors?.pattern">Please enter valid Username</div>
+  <div class="alert alert-danger" *ngIf="userLoginForm.submitted && username.valid && !password.valid">Password is required</div><br><br><br><br><br>
+    <!-- Form Start here -->
+  <h1 style="text-align:initial ; font-size: 22.5px">Login</h1>
+
+  <div class="panel panel-primary">
+    <div class="panel-body">
+      <form (ngSubmit)="userLoginForm.form.valid && onUserLogin()" #userLoginForm="ngForm">
+        <br>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Username</label>
+          <div class="input-group" style="margin-bottom: 5px">
+            <span class="input-group-addon ">
+              <i class="glyphicon glyphicon-envelope"></i>
+            </span>
+            <input class="form-control" type="email" placeholder="Email" name="username" [(ngModel)]="model.username" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+              #username="ngModel" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Password</label>
+          <div class="input-group" style="margin-bottom: 5px">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-lock"></i>
+            </span>
+            <input class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel"
+              required>
+          </div>
+        </div>
+        <div class="col-md-12 text-center">
+          <button style="margin-right: 20px" type="submit" class="btn btn-success" [disabled]="!userLoginForm.form.valid">Login</button>
+          <button type="button" class="btn btn-primary" routerLink="/register" routerLinkActive="active">Signup</button>
+          <br/>
+          <a style="text-align : center;" routerLink="/forgotpassword" routerLinkActive="active">Forgot Password</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<h3>
+  <b>New Log</b>
+</h3>
+
+<form class="Log-form" (ngSubmit)="createLog()" #modelLog="ngForm">
+  <mat-form-field class="Log-full-width">
+    <input matInput placeholder="Project">
+    <mat-autocomplete #auto="matAutocomplete" [(ngModel)]="model.project">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="Log-full-width" [(ngModel)]="model.task">
+    <input matInput placeholder="Task">
+  </mat-form-field>
+  <mat-form-field class="Log-full-width">
+    <input type="time" matInput placeholder="Hours" [(ngModel)]="model.hours">
+  </mat-form-field>
+  <mat-form-field class="Log-full-width">
+    <input matInput placeholder="comment">
+  </mat-form-field>
+  <mat-form-field class="Log-full-width">
+    <input matInput [matDatepicker]="picker" placeholder="Date" [formControl]="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <div fxLayout="row" fxLayoutAlign="center" fxLayout.xs="column" fxLayoutGap="10px">
+    <button mat-raised-button color="basic">Add</button>
+    <button mat-raised-button color="primary" (click)="hide()">Cancel</button>
+  </div>
+</form>

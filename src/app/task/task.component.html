@@ -1,0 +1,24 @@
+
+<h3><b>Create Task</b></h3>
+ <div class="panel panel-default">
+<div class="panel-body">
+<form class="Log-form" >
+  <mat-form-field class="Log-full-width">
+    <input matInput placeholder="Task">
+    <!-- <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let project of projects" [value]="project">
+       {{project}}
+       </mat-option>
+    </mat-autocomplete> -->
+  </mat-form-field>
+  <mat-form-field class="Log-full-width">
+    <input matInput placeholder="Project">
+  </mat-form-field>
+  <div class="col-md-12 text-center">
+    <button class="btn btn-success">Save</button>
+    <button class="btn btn-danger" (click)="hide()">Cancel</button>
+</div>
+</form>
+
+
+

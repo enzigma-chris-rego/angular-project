@@ -1,0 +1,30 @@
+       <h3>
+          <b>Create New Project</b>
+        </h3>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <form class="Log-form">
+              <mat-form-field class="Log-full-width">
+                <input matInput placeholder="Project">
+              </mat-form-field>
+              <mat-form-field class="Log-full-width">
+                  <input matInput placeholder="Organization">
+                <!-- <input matInput placeholder="Organization" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                  <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let option of options" [value]="option">
+                    {{option}}
+                  </mat-option>
+                </mat-autocomplete> -->
+              </mat-form-field> 
+              <mat-form-field class="Log-full-width">
+                <input matInput placeholder="Reporting Manager">
+              </mat-form-field>
+              <div class="col-md-12 text-center">
+                <button class="btn btn-success">Save</button>
+                <button class="btn btn-danger" (click)="hide()">Cancel</button>
+              </div>
+            </form>
+          </div>
+          </div>
+    
+  

@@ -1,0 +1,65 @@
+<div fxLayout="row" fxLayoutAlign="start" fxLayout.xs="column" fxLayoutGap="10px">
+    <mat-form-field>
+        <mat-label>Projects</mat-label>
+        <mat-select [(value)]="selected">
+            <mat-option value="DNAfit">DNAfit</mat-option>
+            <mat-option value="Cella">Cella</mat-option>
+            <mat-option value="ARC">ARC</mat-option>
+            <mat-option value="Byes">Byes</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Profile</mat-label>
+        <mat-select [(value)]="selected">
+            <mat-option value="DNAfit">Manager</mat-option>
+            <mat-option value="Cella">Admin</mat-option>
+            <mat-option value="ARC">User</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+    <div fxFlex="80%" fxFlexAlign="start">
+        <button mat-raised-button (click)="addUser()">Add User</button>
+    </div>
+    <div fxFlex="20%" fxFlexAlign="end">
+        <mat-form-field>
+            <input matInput type="text"  placeholder="Search">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+</div>
+
+<mat-table #table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="{{column.id}}" *ngFor="let column of columnNames">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.value}} </mat-header-cell>
+        <ng-template [ngIf]="column.id != 'action'">
+            <mat-cell *matCellDef="let element"> {{element[column.id]}} </mat-cell>
+        </ng-template>
+        <ng-template [ngIf]="column.id == 'action'">
+            <mat-cell *matCellDef="let element" (click)="$event.stopPropagation()">
+                <button mat-button (click)="onEditUser(element.id)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-button (click)="onDelete(element.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-template>
+        <ng-template [ngIf]="column.id == 'action'">
+            <mat-cell *matCellDef="let element" (click)="$event.stopPropagation()">
+                <button mat-button (click)="edit(element.id)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-button (click)="delete(element.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-template>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 15, 20]" showFirstLastButtons></mat-paginator>

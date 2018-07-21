@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+
+h1, h2, h3, h4 {
+  font-weight: normal;
+}
+
+.col-padding-left-zero{
+    padding-left: 0px;
+}
+.col-padding-top{
+    padding-top: 15px;
+}
+.col-padding-rigth-zero{
+    padding-right: 0px; 
+}
+.text-center{
+    text-align:center
+}
+/* .mar-top{
+    margin-top: 5%;
+} */
+.nav a.active{
+    color: #039be5 !important;
+}
+
+panel{
+    margin-top: 50px;
+}
+.my-panel.mat-dialog-container {
+  
+    /* border:  solid black; */
+    width: 60%;
+    margin-left: 23%;   
+    border-radius: 2%;
+}

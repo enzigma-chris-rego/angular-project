@@ -1,0 +1,22 @@
+<h3>
+  <b>Add User</b>
+</h3>
+
+<form class="Log-form">
+  <mat-form-field class="Log-full-width">
+    <input matInput placeholder="Project">
+    <!-- <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let project of projects" [value]="project">
+           {{project}}
+           </mat-option>
+        </mat-autocomplete> -->
+  </mat-form-field>
+  <mat-form-field class="Log-full-width">
+    <input matInput placeholder="Users">
+  </mat-form-field>
+  <div class="button-row">
+  <button mat-raised-button color="basic">Add</button>
+  
+  <button mat-raised-button color="primary"  (click)="hide()">Cancel</button>
+</div>
+ </form> 

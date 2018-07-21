@@ -1,0 +1,77 @@
+<div class="mar-top">
+  <div class="position">
+    <div class="container col-md-6 col-md-offset-3">
+      <div class="alert alert-danger" *ngIf="firstname.touched && !firstname.valid">First Name is required</div>
+      <div class="alert alert-danger" *ngIf="firstname.valid && lastname.touched && !lastname.valid">Last Name is required</div>
+      <div *ngIf="firstname.valid && lastname.valid && emailref.errors &&(emailref.touched || emailref.dirty)" class="aler alert-danger">
+        <div *ngIf="emailref.errors?.required" class="alert alert-danger">Email is required</div>
+        <div *ngIf="emailref.errors?.pattern" class="alert alert-danger">Please enter valid Email</div>
+      </div>
+      <div *ngIf="isInvalidPass" class="alert alert-danger">Password and confirm password does not match</div>
+
+      <h1 style="text-align:initial ; font-size: 22.5px">Signup</h1>
+
+      <div class="panel panel-primary ">
+        <div class="panel-body">
+          <br>
+          <form (ngSubmit)="registerUserForm.form.valid && onRegister()" #registerUserForm="ngForm">
+            <div class="form-group">
+              <label for="firstname">First Name</label>
+              <div class="input-group" style="margin-bottom: 5px">
+                <span class="input-group-addon ">
+                  <i class="glyphicon glyphicon-text-background"></i>
+                </span>
+                <input class="form-control" type="text" placeholder="First Name" name="firstname" [(ngModel)]="model.firstname" #firstname="ngModel"
+                  required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastname">Last Name</label>
+              <div class="input-group" style="margin-bottom: 5px">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-text-background"></i>
+                </span>
+                <input class="form-control" type="text" placeholder="Last Name" name="lastname" [(ngModel)]="model.lastname" #lastname="ngModel"
+                  required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <div class="input-group" style="margin-bottom: 5px">
+                <span class="input-group-addon ">
+                  <i class="glyphicon glyphicon-envelope"></i>
+                </span>
+                <input class="form-control" type="email" placeholder="Email" name="email" [(ngModel)]="model.email" #emailref="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-group" style="margin-bottom: 5px">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-lock"></i>
+                </span>
+                <input class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel"
+                  required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="confirmpassword">Confirm Password</label>
+              <div class="input-group" style="margin-bottom: 5px">
+                <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-lock"></i>
+                </span>
+                <input class="form-control" type="password" placeholder="Confirm Password" name="confirmpassword" [(ngModel)]="model.confirmpassword"
+                  #confirmpassword="ngModel" required>
+              </div>
+            </div>
+            <div class="col-md-12 text-center">
+              <button style="margin-right: 30px" type="submit" class="btn btn-success" [disabled]="!registerUserForm.form.valid">SignUp</button>
+              <button type="button" class="btn btn-danger" (click)="onCancel(registerUserForm)">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<h3>
+    <b>Create New Organization</b>
+</h3>
+<form class="Log-form">
+    <mat-form-field class="Log-full-width">
+        <input type="text" placeholder="Organization" aria-label="Number" matInput [formControl]="formControl" [matAutocomplete]="auto">
+        <!-- <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+            </mat-option>
+        </mat-autocomplete>-->
+    </mat-form-field> 
+    <mat-form-field class="Log-full-width">
+        <input matInput placeholder="Email">
+    </mat-form-field>
+    <mat-form-field class="Log-full-width">
+        <input matInput placeholder="Contact">
+    </mat-form-field>
+    <mat-form-field class="Log-full-width">
+        <input matInput placeholder="Domains">
+    </mat-form-field>
+    <div class="col-md-12 text-center">
+        <button class="btn btn-success">Save</button>
+        <button class="btn btn-danger" (click)="hide()">Cancel</button>
+    </div>
+</form>

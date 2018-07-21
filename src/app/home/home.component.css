@@ -1,0 +1,102 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 0.25px 0 6px rgba(0,0,0,.24);
+}
+button {
+  color:blue;
+  font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    /* font-weight: 500; */
+    font-stretch: normal;
+    font-size: 15px;
+    line-height: 32px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    margin-left: 30px;
+    
+}
+.btn:hover {
+  color: black; 
+  
+}
+.two {
+  width:100%; 
+  
+  height:60px;
+}
+
+.b1 {
+  margin-top: 22px; 
+  margin-left:2px; 
+  color:black ;
+   
+}
+.b2 {
+  margin-top: 22px; 
+  color:black;
+  margin-left:2px; 
+  width:4%
+  
+}
+.mat-toolbar {
+  background-color: white;
+}
+
+/* .app-table {
+  width:50%;
+} */
+/* .mat-sort-header-container
+.mat-sort-header-button {
+  margin-left: 50px;
+}
+.mat-header-cell {
+  padding-left: 24px;
+} */
+
+ /* .mat-calendar{
+  width: 200px;
+  height: 354px;
+} */
+
+/* mat-form-field-infix {
+  margin-left: 50px;
+}  */
+ 
+
+/* 
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+  color: aqua;
+}
+
+.navbar-fixed-top {
+  min-height: 1000px;
+  margin-top: 60px;
+}*/
+/* mat-toolbar {
+  margin-top: 30px;
+  /*height: 50px;*/
+/* }
+mat-option {
+  font-size: 10px;
+}
+.mat-select-content{
+  width:2000px;
+  background-color: red;
+  font-size: 10px !important;
+} */ 
+/* .ng-tns-c4-1{
+  font-size: 13px;
+} */

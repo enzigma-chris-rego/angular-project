@@ -1,0 +1,24 @@
+.Log-form {
+   
+    width: 100%;
+    }
+    .Log-full-width {
+    width: 100%;
+  }
+   
+  .btn-success{
+    margin-right: 20px;
+    width: 65px;
+    height: 40px;
+    text-align: center;
+    }
+    .btn-danger{
+    width: 66px;
+    height: 40px;
+    text-align:right;
+    }
+    .modal-dialog {
+        position:center;
+        margin-top: 10%;
+   }
+    
